@@ -30,7 +30,13 @@ namespace Senai.Gerir.back
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+
+            services.AddControllers()
+                    //para ignorar loopings, ex: no usuario tem uma tarefa que na tarefa tem um usuario e assim sucessivamente
+                    .AddNewtonsoftJson(options =>
+                    {
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Gerir.back", Version = "v1" });
@@ -47,7 +53,7 @@ namespace Senai.Gerir.back
                          ValidateLifetime         = true,
                          ValidateIssuerSigningKey = true,
 
-                         ValidIssuer   = "gerir.com.br",
+                         ValidIssuer   =  "gerir.com.br",
                          ValidAudience =  "gerir.com.br",
 
                          IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("GerirChaveSeguranca")) //chave de segurança

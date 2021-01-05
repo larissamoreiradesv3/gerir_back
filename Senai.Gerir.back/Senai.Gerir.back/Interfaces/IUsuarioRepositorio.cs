@@ -35,7 +35,7 @@ namespace Senai.Gerir.back.Interfaces
         /// Deletar informações do Usuário
         /// </summary>
         /// <param name="id">Id do Usuário</param>
-        void Deletar(Guid id);
+        void Remover(Guid id);
 
         /// <summary>
         /// Busca o usuário pelo Id

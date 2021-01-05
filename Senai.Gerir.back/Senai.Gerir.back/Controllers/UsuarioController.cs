@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Senai.Gerir.back.Dominios;
@@ -40,6 +41,7 @@ namespace Senai.Gerir.back.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         //Para que n haja conflito entre os EndPoints devemos definir um caminho para diferencia-los
         [HttpPost("login")]
         public IActionResult Logar(Usuario usuario)
@@ -63,6 +65,74 @@ namespace Senai.Gerir.back.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult MeusDados()
+        {
+            try
+            {
+                //Pega as informalções referentes ao usuário 
+                var claimusuario = HttpContext.User.Claims;
+                //Pega o id do usuario na Claim Jti
+                var usuarioid = claimusuario.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Jti);
+                //pega as informações do usuário 
+                var usuario = _usuarioRepositorio.BuscarPorId(new Guid (usuarioid.Value));
+
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        public IActionResult Editar(Usuario usuario)
+        {
+            try
+            {
+                //Pega as informalções referentes ao usuário 
+                var claimusuario = HttpContext.User.Claims;
+                //Pega o id do usuario na Claim Jti
+                var usuarioid = claimusuario.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Jti);
+                //Atribuo o valor do usuarioid ao id do usuario recebdio 
+                usuario.Id = new Guid(usuarioid.Value);
+
+                _usuarioRepositorio.Editar(usuario);
+                return Ok(usuario);
+                
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete]
+
+        public IActionResult Remover()
+        {
+            try
+            {
+                //Pega as informalções referentes ao usuário 
+                var claimusuario = HttpContext.User.Claims;
+                //Pega o id do usuario na Claim Jti
+                var usuarioid = claimusuario.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Jti);
+                _usuarioRepositorio.Remover(new Guid(usuarioid.Value));
+                return Ok(usuarioid);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
         private string GerarJsonWebToken(Usuario usuario)
         {
             //Chave de Segurança 
