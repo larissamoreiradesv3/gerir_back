@@ -57,7 +57,7 @@ namespace Senai.Gerir.back.Controllers
                 //Caso o usuário exista um token é gerado
                 var token = GerarJsonWebToken(usuarioexiste);
                 //Caso exista o usuário
-                return Ok(token);
+                return Ok(new { token = token });
             }
             catch (System.Exception ex)
             {

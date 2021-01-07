@@ -62,6 +62,14 @@ namespace Senai.Gerir.back
                      };
  
                  });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("PoliticaCors",
+                    builder => builder.AllowAnyOrigin() //acesso a origem
+                                      .AllowAnyMethod() //acesso a metodos
+                                      .AllowAnyHeader() //acesso a cabeçalhos
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +89,8 @@ namespace Senai.Gerir.back
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseCors("PoliticaCors");
 
             app.UseEndpoints(endpoints =>
             {
