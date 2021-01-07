@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "d0b8c9b2-1016-450b-8f0e-caba3e26e6a8",
+		"name": "Api Gerir ",
+		"description": "Documentação Api Gerir",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Post - api/usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\"  : \"Thiago\",\r\n    \"email\" :  \"thiago@email.com\",\r\n    \"senha\"   :   \"123456\",\r\n    \"tipo\"    : \"comum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/usuario",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"usuario"
+							]
+						},
+						"description": "Cadastra um novo usuário "
+					},
+					"response": []
+				},
+				{
+					"name": "Post - api/usuario/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"joao@email.com\",\r\n    \"senha\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/usuario/login",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"usuario",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6IlRoaWFnbyIsImVtYWlsIjoidGhpYWdvQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImNvbXVtIiwianRpIjoiNjM0ODhkZDktMmJlYi00NjVmLWIyOGEtMmVkMjBhMjJmYTg4IiwiZXhwIjoxNjA5OTU0MDI1LCJpc3MiOiJnZXJpci5jb20uYnIiLCJhdWQiOiJnZXJpci5jb20uYnIifQ.bvnBe1U7v5Vfgbgq4hrHq4cCHXdMrQmp6FfarDGBRmo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/usuario",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6IlRoaWFnbyIsImVtYWlsIjoidGhpYWdvQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImNvbXVtIiwianRpIjoiNjM0ODhkZDktMmJlYi00NjVmLWIyOGEtMmVkMjBhMjJmYTg4IiwiZXhwIjoxNjA5OTU0MDI1LCJpc3MiOiJnZXJpci5jb20uYnIiLCJhdWQiOiJnZXJpci5jb20uYnIifQ.bvnBe1U7v5Vfgbgq4hrHq4cCHXdMrQmp6FfarDGBRmo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\"  : \"Thiago H\"\r\n    \"email\" : \"thiago@email.com\",\r\n    \"senha\" : \"123456\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/usuario",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"usuario"
+							]
+						},
+						"description": "Edita informações do usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "api/usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6IlRoaWFnbyBIIiwiZW1haWwiOiJ0aGlhZ29AZW1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiY29tdW0iLCJqdGkiOiI2MzQ4OGRkOS0yYmViLTQ2NWYtYjI4YS0yZWQyMGEyMmZhODgiLCJleHAiOjE2MDk5NjI3NzUsImlzcyI6ImdlcmlyLmNvbS5iciIsImF1ZCI6ImdlcmlyLmNvbS5iciJ9.B6EXwqhlE-WWKRSlA4YlDcf9300UAUkSE3GFzkEikQY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/usuario",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"usuario"
+							]
+						},
+						"description": "Deleta"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tarefas",
+			"item": [
+				{
+					"name": "api/tarefa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Titulo\" : \"Ifood Copy\",\r\n    \"Descricao\" : \"bla bla\",\r\n    \"Categoria\" : \"desenvolvimento\",\r\n    \"DataEntrega\" : \"2021-01-25 13:44:47.290\",\r\n     \"Status\" : false,\r\n    \"UsuarioId\" : \"b267290a-2d73-447a-b3eb-efdf455a05fb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/tarefa/cadastro",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"tarefa",
+								"cadastro"
+							]
+						},
+						"description": "Cadastrar tarefa"
+					},
+					"response": []
+				},
+				{
+					"name": "api/tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6Ikpvw6NvIiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImNvbXVtIiwianRpIjoiZDhkOWNkYjktZWViMS00NjEwLWE4YmEtODU0YmNlYWIzMzliIiwiZXhwIjoxNjEwMDI5MTk1LCJpc3MiOiJnZXJpci5jb20uYnIiLCJhdWQiOiJnZXJpci5jb20uYnIifQ.Tl05p3Igz7QzDIRqS_bwOQ4XdvSIuZ7gGpJCeEunNDU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\"    : \"00000000-0000-0000-0000-000000000000\",\r\n    \"titulo\" : \"Uber 2.0!!\",\r\n    \"descrição\" : \"Desenvolver aplicação usando a Uber como base\",\r\n    \"UsuarioId\" : \"d8d9cdb9-eeb1-4610-a8ba-854bceab339b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/tarefa",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"tarefa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6Ikpvw6NvIiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImNvbXVtIiwianRpIjoiZDhkOWNkYjktZWViMS00NjEwLWE4YmEtODU0YmNlYWIzMzliIiwiZXhwIjoxNjEwMDM5MTc5LCJpc3MiOiJnZXJpci5jb20uYnIiLCJhdWQiOiJnZXJpci5jb20uYnIifQ.q-UeRcOBgW52E6s1pMnBpryQ814osjEwQ84F1rJOavo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlhost}}api/tarefa/2AD8497A-B783-45B2-BFED-67305070ED6F",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"tarefa",
+								"2AD8497A-B783-45B2-BFED-67305070ED6F"
+							]
+						},
+						"description": "deleta a tarefa"
+					},
+					"response": []
+				},
+				{
+					"name": "api/tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6Ikpvw6NvIiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImNvbXVtIiwianRpIjoiZDhkOWNkYjktZWViMS00NjEwLWE4YmEtODU0YmNlYWIzMzliIiwiZXhwIjoxNjEwMDM5NzM3LCJpc3MiOiJnZXJpci5jb20uYnIiLCJhdWQiOiJnZXJpci5jb20uYnIifQ.oebd6XX8jLOoaeA1WgYpNeTJb8FFGeDLMxAi8Snc-8s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idTarefa\" : \"2AD8497A-B783-45B2-BFED-67305070ED6F\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlhost}}api/tarefa/alterarstatus",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"tarefa",
+								"alterarstatus"
+							]
+						},
+						"description": "alterar status "
+					},
+					"response": []
+				},
+				{
+					"name": "api/tarefa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlhost}}api/tarefa/ver/listar/D8D9CDB9-EEB1-4610-A8BA-854BCEAB339B",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"tarefa",
+								"ver",
+								"listar",
+								"D8D9CDB9-EEB1-4610-A8BA-854BCEAB339B"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlfbmFtZSI6IkJvYmluaGEiLCJlbWFpbCI6ImJvYmluaGFAZW1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiY29tdW0iLCJqdGkiOiJiMjY3MjkwYS0yZDczLTQ0N2EtYjNlYi1lZmRmNDU1YTA1ZmIiLCJleHAiOjE2MTAxMDU2NzIsImlzcyI6ImdlcmlyLmNvbS5iciIsImF1ZCI6ImdlcmlyLmNvbS5iciJ9.yNpdWb673p_KTuolUums6Qay29Oy7Mqg-M3cn4AzuEM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlhost}}api/tarefa/buscartarefa/B267290A-2D73-447A-B3EB-EFDF455A05FB",
+							"host": [
+								"{{urlhost}}api"
+							],
+							"path": [
+								"tarefa",
+								"buscartarefa",
+								"B267290A-2D73-447A-B3EB-EFDF455A05FB"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlhost",
+			"value": "https://localhost:5001/"
+		}
+	]
+}

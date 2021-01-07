@@ -113,9 +113,9 @@ namespace Senai.Gerir.back.Controllers
         }
 
         [Authorize]
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
-        public IActionResult Remover()
+        public IActionResult Remover(Guid id)
         {
             try
             {
